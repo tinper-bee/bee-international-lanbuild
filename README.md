@@ -9,6 +9,7 @@
 2. 配置 `lanbuild.js` 
 3. 第一次使用，需要先执行 `npm run dic` 生成 `mangage_new_en.xlsx` 和 `mangage_new_tw.xlsx`。这两个 excel 中保存了所有的中文。 将两个文件内容分别拷贝到 `en.xlsx` 和 `tw.xlsx` 中，并在 excel 中翻译。
 4. 每次有新增的节点时，需要手动将 `mangage_new_en.xlsx` 和 `mangage_new_tw.xlsx` 合并到 `en.xlsx` 和 `tw.xlsx` 
+5. 运行 `node lanbuild.js 1` 提取所有中文。 运行 `node lanbuild.js 2` 产出多种语言源码。 本示例已经将此命令配置到 `package.json` 文件中
 
 ## 注意
 
