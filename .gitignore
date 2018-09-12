@@ -58,4 +58,12 @@ typings/
 .env
 dist
 
+# lanbuild file
 .idea/
+cn/
+en/
+i18n/
+i18n_addTags
+default.xlsx
+manager_new_en.xlsx
+manager_new_tw.xlsx
