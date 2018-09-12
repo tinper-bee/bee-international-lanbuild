@@ -4,8 +4,12 @@
   "description": "uba boilerplate react spa",
   "main": "index.js",
   "scripts": {
-    "dev": "uba server",
-    "build": "uba build"
+    "dev": "cross-env LANG=src uba server",
+    "dev_en": "cross-env LANG=en uba server",
+    "dev_tw": "cross-env LANG=tw uba server",
+    "build": "uba build",
+    "dic": "node lanbuild.js 1",
+    "dic2": "node lanbuild.js 2"
   },
   "author": "yueming@yonyou.com",
   "license": "MIT",
@@ -42,8 +46,11 @@
     "axios": "^0.16.1",
     "bee-tabs": "^0.3.2",
     "classnames": "^2.2.5",
+    "cross-env": "^5.2.0",
     "draft-js": "^0.10.0",
+    "exceljs": "^1.6.2",
     "history": "^4.4.1",
+    "lanbuild": "^1.0.8",
     "mirrorx": "^0.2.6",
     "recharts": "^0.22.2",
     "tinper-bee": "0.6.2"

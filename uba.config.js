@@ -30,7 +30,7 @@ const proxyConfig = [{
 
 //静态服务托管
 const staticConfig = {
-    folder: "src/static"
+    folder: ""+process.env.LANG+"/static"
 };
 
 
@@ -38,7 +38,7 @@ const staticConfig = {
 const devConfig = {
     devtool: "cheap-module-source-map",
     entry: {
-        app: ["./src/index.js", hotMiddlewareScript]
+        app: ["./"+process.env.LANG+"/index.js", hotMiddlewareScript]
     },
     output: {
         path: path.resolve(__dirname, "./dist"),
@@ -53,7 +53,7 @@ const devConfig = {
         rules: [{
             test: /\.js[x]?$/,
             exclude: /(node_modules)/,
-            include: path.resolve("src"),
+            include: [path.resolve(process.env.LANG)],
             use: [{
                 loader: "babel-loader"
             }]
@@ -105,10 +105,10 @@ const devConfig = {
         }),
         new HtmlWebpackPlugin({
             filename: "index.html",
-            template: "./src/index.html",
+            template: "./"+process.env.LANG+"/index.html",
             inject: "body",
             hash: false,
-            //favicon : "./src/assets/images/favicon.png",
+            //favicon : "./"+process.env.LANG+"/assets/images/favicon.png",
             chunks: ["app"]
         }),
         new webpack.HotModuleReplacementPlugin()
@@ -118,10 +118,10 @@ const devConfig = {
             ".js", ".jsx"
         ],
         alias: {
-            components: path.resolve(__dirname, "src/components/"),
-            containers: path.resolve(__dirname, "src/containers/"),
-            assets: path.resolve(__dirname, "src/assets/"),
-            pages: path.resolve(__dirname, "src/pages/")
+            components: path.resolve(__dirname, ""+process.env.LANG+"/components/"),
+            containers: path.resolve(__dirname, ""+process.env.LANG+"/containers/"),
+            assets: path.resolve(__dirname, ""+process.env.LANG+"/assets/"),
+            pages: path.resolve(__dirname, ""+process.env.LANG+"/pages/")
         }
     }
 }
@@ -131,7 +131,7 @@ const devConfig = {
 const prodConfig = {
     entry: {
         vendors: ["react", "react-dom"],
-        app: "./src/index.js"
+        app: "./"+process.env.LANG+"/index.js"
     },
     output: {
         path: path.resolve(__dirname, "./dist"),
@@ -146,7 +146,7 @@ const prodConfig = {
         rules: [{
             test: /\.js[x]?$/,
             exclude: /(node_modules)/,
-            include: path.resolve("src"),
+            include: path.resolve(process.env.LANG),
             use: [{
                 loader: "babel-loader"
             }]
@@ -204,10 +204,10 @@ const prodConfig = {
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             filename: "index.html",
-            template: "./src/index.html",
+            template: "./"+process.env.LANG+"/index.html",
             inject: "body",
             hash: true,
-            //favicon : "./src/assets/images/favicon.png",
+            //favicon : "./"+process.env.LANG+"/assets/images/favicon.png",
             chunks: ["vendors", "app"]
         })
     ],
@@ -216,10 +216,10 @@ const prodConfig = {
             ".js", ".jsx"
         ],
         alias: {
-            components: path.resolve(__dirname, "src/components/"),
-            containers: path.resolve(__dirname, "src/containers/"),
-            assets: path.resolve(__dirname, "src/assets/"),
-            pages: path.resolve(__dirname, "src/pages/")
+            components: path.resolve(__dirname, ""+process.env.LANG+"/components/"),
+            containers: path.resolve(__dirname, ""+process.env.LANG+"/containers/"),
+            assets: path.resolve(__dirname, ""+process.env.LANG+"/assets/"),
+            pages: path.resolve(__dirname, ""+process.env.LANG+"/pages/")
         }
     }
 }
